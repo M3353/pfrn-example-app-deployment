@@ -49,6 +49,4 @@ def create_table():
   connection.close()
 
 if __name__ == '__main__':
-  # create_table()
-  with app.app_context():
-    db.create_all()
+  create_table()
