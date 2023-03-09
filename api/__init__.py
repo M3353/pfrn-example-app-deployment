@@ -7,10 +7,11 @@ from .extensions import db
 from .blurble_api import api
 from .config import Config
 
-def create_app(database_uri="postgresql://localhost:5432/{}".format(os.environ["DB_NAME"])):
+
+def create_app():
   app = Flask(__name__)
 
-  app.config["SQLALCHEMY_DATABASE_URI"] = database_uri
+  app.config.from_object(Config)
 
   # initialize
   db.init_app(app)

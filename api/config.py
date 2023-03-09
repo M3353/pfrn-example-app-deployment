@@ -5,7 +5,8 @@ PORT = environ.get('DB_PORT')
 HOST = environ.get('DB_HOST')
 PASS = environ.get('DB_PASS')
 USER = environ.get('DB_USER')
+NAME = environ.get('DB_NAME')
 
 class Config:
-  SQLALCHEMY_DATABASE_URI = "postgresql://{}:{}@{}:{}".format(USER, PASS, HOST, PORT)
+  SQLALCHEMY_DATABASE_URI = "postgresql://{}:{}@{}:{}/{}".format(USER, PASS, HOST, PORT, NAME)
   

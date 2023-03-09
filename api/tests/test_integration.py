@@ -35,4 +35,4 @@ def test_invalid_insert(client, app, current_date):
   }
   
   res = client.post("/insert", json=data)
-  assert res.status_code == 200
+  assert res.status_code == 400
