@@ -1,5 +1,4 @@
 import os
-from types import NoneType
 import psycopg2
 import typing
 import json
@@ -60,7 +59,7 @@ def insert_into_db() -> str:
     data: typing.Dict[str, str] = json.loads(request.data)
     title: str = data['title']
     content: str = data['content']
-    datetime: str | NoneType = data['datetime']
+    datetime: str | None = data['datetime']
 
     blurb = Blurb(title=title, content=content, datetime=datetime)
     
