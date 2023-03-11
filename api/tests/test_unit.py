@@ -1,5 +1,7 @@
 import pytest
 
+from os import environ
+
 from api.models import Blurb
 from .utils import current_date
 
@@ -20,3 +22,15 @@ def test_new_blurb(current_date):
   assert blurb.title == data["title"]
   assert blurb.content == data["content"]
   assert blurb.datetime == data["datetime"]
+
+
+def test_environ():
+  host = environ.get('DB_HOST')
+  password = environ.get('DB_PASS')
+  user = environ.get('DB_USER')
+  db = environ.get('DB_NAME')
+
+  assert host == "dpg-cg6bqdpmbg5ab7k57id0-a.ohio-postgres.render.com"
+  assert password == "8fLLDmDIVEKGrKltLwiXdmuWyPCIiWTE"
+  assert user == "pfrn"
+  assert db == "pfrn"
